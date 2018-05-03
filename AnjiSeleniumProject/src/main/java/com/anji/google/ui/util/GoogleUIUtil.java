@@ -8,6 +8,10 @@ import com.google.inject.Singleton;
 
 @Singleton
 public class GoogleUIUtil {
+	
+	private GoogleHeaderUtil googleHeaderUtil;
+	
+	private GoogleSearchUtil googleSearchUtil;
 
 	public void launchGoogle() {
 		WebDriver driver = WebDriverManager.getDriver();
@@ -16,11 +20,13 @@ public class GoogleUIUtil {
 	}
 	
 	public GoogleHeaderUtil toGoogleHeader() {
-		return GoogleHeaderUtil.getInstance(this);
+		googleHeaderUtil = GoogleHeaderUtil.getInstance(this);
+		return googleHeaderUtil;
 	}
 	
 	public GoogleSearchUtil toGoogleSearchUtil() {
-		return GoogleSearchUtil.getInstance(this);
+		googleSearchUtil = GoogleSearchUtil.getInstance(this);
+		return googleSearchUtil;
 	}
 	
 }
